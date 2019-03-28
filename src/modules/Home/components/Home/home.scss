@@ -1,0 +1,44 @@
+@import 'styles/colors.scss';
+
+.intro {
+	padding: 30px;
+}
+
+.introLogo {
+	margin-bottom: 20px;
+	max-height: 50px;
+}
+
+.home {
+	font-family: 'Oswald Light', sans-serif;
+	transition: all 5s;
+	background: linear-gradient(to right, $white 0%, $white 100%);
+}
+
+.emulator {
+	background: linear-gradient(to right, #1E5799 0%,#7DB9E8 100%);
+}
+
+.elevator {
+	background: linear-gradient(to right, #2777BA 0%,#6FB54C 100%);
+}
+
+.perforator {
+	background: linear-gradient(to top, #FFF 0%, #000 100%);
+}
+
+.mainTitles {
+	color: $white;
+	letter-spacing: 1px;
+
+	&_top {
+		font-size: 30px;
+		text-transform: uppercase;
+		margin-bottom: 16px;
+	}
+
+	&_bottom {
+		color: #B4D7E4;
+		font-size: 14px;
+	}
+}
