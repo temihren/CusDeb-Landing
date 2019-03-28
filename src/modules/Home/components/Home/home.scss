@@ -1,0 +1,58 @@
+@import 'styles/colors.scss';
+
+@keyframes animateBackground {
+	0% {
+		background-position: 0% 83%
+	}
+
+	50% {
+		background-position: 100% 18%
+	}
+
+	100% {
+		background-position: 0% 83%
+	}
+}
+
+.intro {
+	padding: 30px;
+}
+
+.introLogo {
+	margin-bottom: 20px;
+	max-height: 50px;
+}
+
+.home {
+	font-family: 'Oswald Light', sans-serif;
+	transition: all 5s;
+	background: linear-gradient(to right, $white, $white);
+}
+
+.overTheAir {
+	background: linear-gradient(to right, #1E57A1,#5FB474);
+	background-size: 200% 200%;
+	animation: animateBackground 10s ease infinite;
+}
+
+.emulator {
+	background: linear-gradient(to right, #1E5799,#7DB9E8);
+	background-size: 200% 200%;
+	animation: animateBackground 10s ease infinite;
+}
+
+.mainTitles {
+	color: $white;
+	letter-spacing: 1px;
+
+	&_top {
+		font-size: 30px;
+		text-transform: uppercase;
+		margin-bottom: 16px;
+	}
+
+	&_bottom {
+		color: #B4D7E4;
+		font-size: 14px;
+	}
+}
