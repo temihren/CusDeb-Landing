@@ -10,75 +10,85 @@ interface IProps {
 	onSlide: any;
 }
 
+interface ISlide {
+	order: number;
+	content: any;
+}
+
 interface IState {
-	fadeOut: boolean;
-	navLeft: any;
-	navRight: any;
+	slides: ISlide[];
 }
 
 class MainSlider extends PureComponent<IProps, IState> {
-	public slide1 = {
-		order: 0,
-		content: (
-			<Flex
-				justifyContent='center'
-				className={cn(styles.slideWrapper, styles.emulator)}
-				alignItems='center'
-			>
-				<Flex alignItems='center' justifyContent='center'>
-					a
-				</Flex>
-				<Flex direction='column'>
-					b
-				</Flex>
-			</Flex>
-		),
-	};
-
-	public isAnimated = false;
-
-	public slide2 = {
-		order: 1,
-		content: (
-			<Flex
-				justifyContent='center'
-				className={cn(styles.slideWrapper, styles.elevator)}
-				alignItems='center'
-			>
-				<Flex alignItems='center' justifyContent='center'>
-					c
-				</Flex>
-				<Flex direction='column'>
-					d
-				</Flex>
-			</Flex>
-		),
-	};
-
-	public slide3 = {
-		order: 2,
-		content: (
-			<Flex
-				justifyContent='center'
-				className={cn(styles.slideWrapper, styles.perforator)}
-				alignItems='center'
-			>
-				<Flex alignItems='center' justifyContent='center'>
-					e
-				</Flex>
-				<Flex direction='column'>
-					f
-				</Flex>
-			</Flex>
-		),
-	};
-
-	public slides = [this.slide1, this.slide2, this.slide3];
+	constructor(props: IProps) {
+		super(props);
+		this.state = {
+			slides: [
+				{
+					order: 0,
+					content: (
+						<Flex
+							justifyContent='center'
+							className={cn(styles.slideWrapper, styles.emulator)}
+							alignItems='center'
+						>
+							<Flex alignItems='center' justifyContent='center'>
+								a
+							</Flex>
+							<Flex direction='column'>
+								b
+							</Flex>
+						</Flex>
+					),
+				},
+				{
+					order: 1,
+					content: (
+						<Flex
+							justifyContent='center'
+							className={cn(styles.slideWrapper, styles.elevator)}
+							alignItems='center'
+						>
+							<Flex alignItems='center' justifyContent='center'>
+								c
+							</Flex>
+							<Flex direction='column'>
+								d
+							</Flex>
+						</Flex>
+					),
+				},
+				{
+					order: 2,
+					content: (
+						<Flex
+							justifyContent='center'
+							className={cn(styles.slideWrapper, styles.perforator)}
+							alignItems='center'
+						>
+							<Flex alignItems='center' justifyContent='center'>
+								t
+							</Flex>
+							<Flex direction='column'>
+								f
+							</Flex>
+						</Flex>
+					),
+				},
+			],
+		};
+	}
 
 	public navLeft = () => {
-		for (const slide of this.slides) {
+		for (const slide of this.state.slides) {
 			if (slide.order === 0) {
-				slide.order = this.slides.length - 1;
+				slide.order = this.state.slides.length - 1;
+
+				this.setState(state => ({
+					slides: [
+						...state.slides,
+					],
+				}));
 			} else {
 				slide.order = slide.order + 1;
 			}
@@ -86,8 +96,8 @@ class MainSlider extends PureComponent<IProps, IState> {
 	}
 
 	public navRight = () => {
-		for (const slide of this.slides) {
-			if (slide.order === this.slides.length - 1) {
+		for (const slide of this.state.slides) {
+			if (slide.order === this.state.slides.length - 1) {
 				slide.order = 0;
 			} else {
 				slide.order = slide.order - 1;
@@ -96,21 +106,23 @@ class MainSlider extends PureComponent<IProps, IState> {
 	}
 
 	public render() {
+		const {slides} = this.state;
 		const {navLeft, navRight} = this;
 
 		return (
 			<Flex justifyContent='center' className={styles.sliderWrapper}>
 				<Flex justifyContent='center' className={styles.mainContainer}>
 					{
-						this.slides.map((slide: any, index: number) => (
+						slides.map((slide: any, index: number) => (
 							<div
 								key={index}
 								className={cn(styles.slide, {
-									[styles.slide_current]: slide.order === 0,
+									[styles.slide_top]: slide.order === 0,
 									[styles.slide_middle]: slide.order === 1,
 									[styles.slide_bottom]: slide.order === 2,
 								})}
 							>
+								{slide.order}
 								{slide.content}
 							</div>
 						))
