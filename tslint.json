@@ -4,6 +4,7 @@
 		"tslint-eslint-rules",
 		"tslint-react"
 	],
+	"defaultSeverity": "warning",
 	"rules": {
 		"no-constant-condition": true,
 		"unnecessary-constructor": true,
