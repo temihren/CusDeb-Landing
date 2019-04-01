@@ -1,5 +1,19 @@
 @import 'styles/colors.scss';
 
+@keyframes animateBackground {
+	0% {
+		background-position: 0% 83%
+	}
+
+	50% {
+		background-position: 100% 18%
+	}
+
+	100% {
+		background-position: 0% 83%
+	}
+}
+
 .intro {
 	padding: 30px;
 }
@@ -12,19 +26,19 @@
 .home {
 	font-family: 'Oswald Light', sans-serif;
 	transition: all 5s;
-	background: linear-gradient(to right, $white 0%, $white 100%);
+	background: $white;
+}
+
+.overTheAir {
+	background: linear-gradient(45deg, #1E57A1,#5FB474);
+	background-size: 150% 150%;
+	animation: animateBackground 10s ease infinite;
 }
 
 .emulator {
-	background: linear-gradient(to right, #1E5799 0%,#7DB9E8 100%);
-}
-
-.elevator {
-	background: linear-gradient(to right, #2777BA 0%,#6FB54C 100%);
-}
-
-.perforator {
-	background: linear-gradient(to top, #FFF 0%, #000 100%);
+	background: linear-gradient(45deg, #1E5799,#7DB9E8);
+	background-size: 150% 150%;
+	animation: animateBackground 10s ease infinite;
 }
 
 .mainTitles {

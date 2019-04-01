@@ -11,10 +11,10 @@ const initialState = {
 			name: 'emulator',
 		},
 		{
-			name: 'elevator',
+			name: 'overTheAir',
 		},
 		{
-			name: 'perforator',
+			name: 'emulator',
 		},
 	],
 };

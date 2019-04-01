@@ -23,7 +23,7 @@ const Home: React.FC<IProps> = props => (
 
 		</Flex>
 
-		<MainSlider />
+		<MainSlider slideTiming={10} />
 	</div>
 );
 

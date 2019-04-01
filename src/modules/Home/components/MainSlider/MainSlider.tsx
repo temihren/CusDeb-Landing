@@ -1,13 +1,17 @@
 import cn from 'classnames';
 import React, {PureComponent} from 'react';
 
+import Arrow from 'assets/images/ImageArrowDown';
 import Flex from 'common/components/Flex/Flex';
+import ProgressCircle from './components/ProgressCircle/ProgressCircle';
+import mainSlides from './slides';
 
 import styles from './mainSlider.scss';
 
 interface IProps {
 	currentSlide: number;
 	onSlide: any;
+	slideTiming: number;
 }
 
 interface ISlide {
@@ -17,97 +21,86 @@ interface ISlide {
 
 interface IState {
 	slides: ISlide[];
+	prevSlideTimer: number;
+	nextSlideTimer: number;
+	slidesTimer: any;
+	isAnimated: boolean;
 }
 
 class MainSlider extends PureComponent<IProps, IState> {
 	constructor(props: IProps) {
 		super(props);
 		this.state = {
-			slides: [
-				{
-					order: 0,
-					content: (
-						<Flex
-							justifyContent='center'
-							className={cn(styles.slideWrapper, styles.emulator)}
-							alignItems='center'
-						>
-							<Flex alignItems='center' justifyContent='center'>
-								a
-							</Flex>
-							<Flex direction='column'>
-								b
-							</Flex>
-						</Flex>
-					),
-				},
-				{
-					order: 1,
-					content: (
-						<Flex
-							justifyContent='center'
-							className={cn(styles.slideWrapper, styles.elevator)}
-							alignItems='center'
-						>
-							<Flex alignItems='center' justifyContent='center'>
-								c
-							</Flex>
-							<Flex direction='column'>
-								d
-							</Flex>
-						</Flex>
-					),
-				},
-				{
-					order: 2,
-					content: (
-						<Flex
-							justifyContent='center'
-							className={cn(styles.slideWrapper, styles.perforator)}
-							alignItems='center'
-						>
-							<Flex alignItems='center' justifyContent='center'>
-								t
-							</Flex>
-							<Flex direction='column'>
-								f
-							</Flex>
-						</Flex>
-					),
-				},
-			],
+			isAnimated: false,
+			prevSlideTimer: 0,
+			nextSlideTimer: 0,
+			slides: mainSlides,
+			slidesTimer: undefined,
 		};
 	}
 
-	public navLeft = () => {
-		for (const slide of this.state.slides) {
-			if (slide.order === 0) {
-				slide.order = this.state.slides.length - 1;
+	public componentDidMount() {
+		this.startAutoSlide('right');
+	}
 
-				this.setState(state => ({
-					slides: [
-						...state.slides,
-					],
-				}));
+	public startAutoSlide = (direction: string) => {
+		clearInterval(this.state.slidesTimer);
+
+		const slideInterval = () => (setInterval(() => {
+			if (direction === 'right') {
+				this.navRight();
+				this.setState(state => ({nextSlideTimer: state.nextSlideTimer + 1}));
 			} else {
-				slide.order = slide.order + 1;
+				this.navLeft();
+				this.setState(state => ({prevSlideTimer: state.prevSlideTimer + 1}));
 			}
-		}
+		}, this.props.slideTiming * 1000));
+
+		this.setState(state => ({
+			slidesTimer: slideInterval(),
+			nextSlideTimer: direction === 'right' ? state.nextSlideTimer + 1 : 0,
+			prevSlideTimer: direction === 'left' ? state.prevSlideTimer + 1 : 0,
+		}));
+	}
+
+	public navLeft = () => {
+		this.props.onSlide(this.props.currentSlide === 0 ? this.state.slides.length - 1 : this.props.currentSlide - 1);
+		this.setState(state => ({
+			...state,
+			slides: state.slides.map(slide => ({
+				...slide,
+				order: (slide.order === state.slides.length - 1) ? 0 : slide.order + 1,
+			})),
+			isAnimated: true,
+		}));
 	}
 
 	public navRight = () => {
-		for (const slide of this.state.slides) {
-			if (slide.order === this.state.slides.length - 1) {
-				slide.order = 0;
-			} else {
-				slide.order = slide.order - 1;
-			}
-		}
+		this.props.onSlide(this.props.currentSlide === this.state.slides.length - 1 ? 0 : this.props.currentSlide + 1);
+		this.setState(state => ({
+			...state,
+			slides: state.slides.map(slide => ({
+				...slide,
+				order: (slide.order === 0) ? state.slides.length - 1 : slide.order - 1,
+			})),
+			isAnimated: true,
+		}));
+	}
+
+	public slideRightClick = () => {
+		this.navRight();
+		this.startAutoSlide('right');
+	}
+
+	public slideLeftClick = () => {
+		this.navLeft();
+		this.startAutoSlide('left');
 	}
 
 	public render() {
-		const {slides} = this.state;
-		const {navLeft, navRight} = this;
+		const {slides, isAnimated, prevSlideTimer, nextSlideTimer} = this.state;
+		const {slideLeftClick, slideRightClick} = this;
+		const {slideTiming} = this.props;
 
 		return (
 			<Flex justifyContent='center' className={styles.sliderWrapper}>
@@ -118,25 +111,62 @@ class MainSlider extends PureComponent<IProps, IState> {
 								key={index}
 								className={cn(styles.slide, {
 									[styles.slide_top]: slide.order === 0,
-									[styles.slide_middle]: slide.order === 1,
-									[styles.slide_bottom]: slide.order === 2,
+									[styles.slide_middle]: slides.length > 2 ? slide.order === 1 : false,
+									[styles.slide_bottom]: slide.order === slides.length - 1,
+									[styles.animated]: isAnimated,
 								})}
+								style={{zIndex: -slide.order + 50}}
 							>
-								{slide.order}
 								{slide.content}
 							</div>
 						))
 					}
-					<div onClick={navLeft} className={styles.navLeftArea}>
-						<div
-							className={styles.arrowLeft}
+					<Flex
+						onClick={slideLeftClick}
+						className={styles.arrowLeft}
+						justifyContent='center'
+						alignItems='center'
+					>
+						<ProgressCircle
+							trackFill={'transparent'}
+							fill={'rgba(255, 255, 255, 0.5)'}
+							progress={prevSlideTimer}
+							size={54}
+							width={3}
+							timing={slideTiming}
+							className={styles.progressCircle}
 						/>
-					</div>
-					<div onClick={navRight} className={styles.navRightArea}>
-						<div
-							className={styles.arrowRight}
+						<Arrow
+							fill='rgba(255, 255, 255, 0.5)'
+							className={cn(
+								styles.mainSliderNavigationArrow,
+								styles.arrowLeftIcon,
+							)}
 						/>
-					</div>
+					</Flex>
+					<Flex
+						onClick={slideRightClick}
+						className={styles.arrowRight}
+						justifyContent='center'
+						alignItems='center'
+					>
+						<ProgressCircle
+							trackFill={'transparent'}
+							fill={'rgba(255, 255, 255, 0.5)'}
+							progress={nextSlideTimer}
+							size={54}
+							timing={slideTiming}
+							width={3}
+							className={styles.progressCircle}
+						/>
+						<Arrow
+							fill='rgba(255, 255, 255, 0.5)'
+							className={cn(
+								styles.mainSliderNavigationArrow,
+								styles.arrowRightIcon,
+							)}
+						/>
+					</Flex>
 				</Flex>
 			</Flex>
 		);
