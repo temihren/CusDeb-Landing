@@ -2,10 +2,11 @@ import {connect} from 'react-redux';
 import MainSlider from '../components/MainSlider/MainSlider';
 
 import {changeCurrentStep} from '../actions/home';
-import {getCurrentSlide} from '../selectors/home';
+import {getCurrentSlide, getMainSlides} from '../selectors/home';
 
 const mapStateToProps = (state: any) => ({
 	currentSlide: getCurrentSlide(state),
+	mainSlides: getMainSlides(state),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

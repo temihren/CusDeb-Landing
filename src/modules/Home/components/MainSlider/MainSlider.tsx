@@ -12,6 +12,7 @@ interface IProps {
 	currentSlide: number;
 	onSlide: any;
 	slideTiming: number;
+	mainSlides: Array<{name: string}>;
 }
 
 interface ISlide {
@@ -34,7 +35,7 @@ class MainSlider extends PureComponent<IProps, IState> {
 			isAnimated: false,
 			prevSlideTimer: 0,
 			nextSlideTimer: 0,
-			slides: mainSlides,
+			slides: mainSlides(props.mainSlides),
 			slidesTimer: undefined,
 		};
 	}

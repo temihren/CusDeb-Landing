@@ -5,7 +5,7 @@ import Terminal from 'assets/images/terminalWindow.svg';
 import Flex from 'common/components/Flex/Flex';
 import styles from './mainSlider.scss';
 
-const mainSlides = [
+const mainSlides = (slidesArray: Array<{name: string}>) => [
 	{
 		order: 0,
 		content: (
@@ -43,21 +43,21 @@ const mainSlides = [
 				>
 					<p className={styles.slideContentTitle}>
 						Emulator
-				</p>
+					</p>
 					<hr className={styles.slideContentLine} />
 					<hr className={styles.slideContentLine} />
 					<p className={styles.slideContentSmallText}>
 						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
 						ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
 						parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec
-				</p>
+					</p>
 					<p className={styles.slideContentSmallText}>
 						Tulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
 						justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-				</p>
+					</p>
 					<div className={styles.slideContentButton}>
 						Learn more
-				</div>
+					</div>
 				</Flex>
 				<div className={styles.slideRightBar}>
 					<Flex
@@ -72,8 +72,24 @@ const mainSlides = [
 					</Flex>
 					<div className={styles.slideRightBarText}>
 						Updates over the air
+					</div>
 				</div>
-				</div>
+				<Flex
+					direction='column'
+					alignItems='center'
+					justifyContent='center'
+					className={styles.slidePagination}
+				>
+					{slidesArray.map((point, index: number) => (
+						<div
+							key={index}
+							className={cn(
+								styles.slidePaginationPoint, {
+								[styles.slidePaginationPoint_active]: index === 0,
+							})}
+						/>
+					))}
+				</Flex>
 			</Flex>
 		),
 	},
@@ -114,21 +130,21 @@ const mainSlides = [
 				>
 					<p className={styles.slideContentTitle}>
 						Over the air
-				</p>
+					</p>
 					<hr className={styles.slideContentLine} />
 					<hr className={styles.slideContentLine} />
 					<p className={styles.slideContentSmallText}>
 						Mender is an open source remote software updater for embedded
 						Linux devices. It enables management of software updates to conected
 						devices remotely over any TCP/IP network.
-				</p>
+					</p>
 					<p className={styles.slideContentSmallText}>
 						You can simply turn any image into a Mender compatable one,
 						selecting “Mender Compatable Image” option, while making your image.
-				</p>
+					</p>
 					<div className={styles.slideContentButton}>
 						Learn more
-				</div>
+					</div>
 				</Flex>
 				<div className={styles.slideRightBar}>
 					<Flex
@@ -143,8 +159,24 @@ const mainSlides = [
 					</Flex>
 					<div className={styles.slideRightBarText}>
 						Updates over the air
+					</div>
 				</div>
-				</div>
+				<Flex
+					direction='column'
+					alignItems='center'
+					justifyContent='center'
+					className={styles.slidePagination}
+				>
+					{slidesArray.map((point, index: number) => (
+						<div
+							key={index}
+							className={cn(
+								styles.slidePaginationPoint, {
+								[styles.slidePaginationPoint_active]: index === 1,
+							})}
+						/>
+					))}
+				</Flex>
 			</Flex>
 		),
 	},
@@ -178,23 +210,23 @@ const mainSlides = [
 				>
 					<p className={styles.slideContentTitle}>
 						Emulator2
-				</p>
+					</p>
 					<hr className={styles.slideContentLine} />
 					<hr className={styles.slideContentLine} />
 					<p className={styles.slideContentSmallText}>
 						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
 						ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
 						parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec
-				</p>
+					</p>
 					<p className={styles.slideContentSmallText}>
 						Tulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
 						justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-				</p>
+					</p>
 					<div className={styles.slideContentButton}>
 						Learn more
-				</div>
+					</div>
 				</Flex>
-				<div className={styles.slideRightBar}>
+					<div className={styles.slideRightBar}>
 					<Flex
 						direction='column'
 						alignItems='center'
@@ -207,8 +239,24 @@ const mainSlides = [
 					</Flex>
 					<div className={styles.slideRightBarText}>
 						Updates over the air
+					</div>
 				</div>
-				</div>
+				<Flex
+					direction='column'
+					alignItems='center'
+					justifyContent='center'
+					className={styles.slidePagination}
+				>
+					{slidesArray.map((point, index: number) => (
+						<div
+							key={index}
+							className={cn(
+								styles.slidePaginationPoint, {
+								[styles.slidePaginationPoint_active]: index === 2,
+							})}
+						/>
+					))}
+				</Flex>
 			</Flex>
 		),
 	},
