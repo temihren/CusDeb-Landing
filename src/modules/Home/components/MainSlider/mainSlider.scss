@@ -1,0 +1,62 @@
+@import 'styles/colors.scss';
+
+$arrowSize: 16px;
+
+.mainContainer {
+	position: relative;
+	width: 1000px;
+	height: 480px;
+}
+
+.sliderWrapper {
+	padding: 40px 0 60px 0;
+}
+
+.emulator {
+	background: linear-gradient(75deg, #1646B0, #589ADC);
+}
+
+.overTheAir {
+	background: linear-gradient(to right, #3A93A9, #127DC9);
+}
+
+.progressCircle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-47%, -50%) rotate(-90deg);
+}
+
+.arrowLeft, .arrowRight {
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	box-sizing: border-box;
+	cursor: pointer;
+	border-radius: 50px;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.mainSliderNavigationArrow {
+	max-width: 20px;
+	max-height: 20px;
+	position: absolute;
+}
+
+.arrowLeft {
+	left: -70px;
+
+	&Icon {
+		transform: rotate(90deg) translateY(8%);
+	}
+}
+
+.arrowRight {
+	right: -70px;
+
+	&Icon {
+		transform: rotate(-90deg) translateY(8%);
+	}
+}

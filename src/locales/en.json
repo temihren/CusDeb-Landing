@@ -1,0 +1,144 @@
+{
+	"common": {
+		"LoadingImages": "Images are loading",
+		"En": "English",
+		"Ru": "Russian",
+		"Common": "Common",
+		"package": "{{count}} package",
+		"package_plural": "{{count}} packages",
+		"Packages": "Packages",
+		"Details": "Details",
+		"Download": "Download",
+		"Edit": "Add note",
+		"Delete": "Delete",
+		"From": "From",
+		"Terminal": "Test drive",
+		"Rebuild": "Rebuild",
+		"ErrorLog": "ErrorLog",
+		"Dashboard": "Dashboard",
+		"Blog": "Blog",
+		"Docs": "Docs",
+		"ClickHere": "Click here",
+		"Feedback": "Feedback",
+		"selected": "selected",
+		"select": "select",
+		"and": "and"
+	},
+	"bytes": {
+		"B": "bytes",
+		"EB": "EB",
+		"GB": "GB",
+		"kB": "KB",
+		"MB": "MB",
+		"PB": "PB",
+		"TB": "TB",
+		"YB": "YB",
+		"ZB": "ZB"
+	},
+	"Packages": {
+		"Base": "Base packages",
+		"Dependencies": "Dependencies",
+		"Added": "Added packages",
+		"PerPage": "Per page",
+		"PackageName": "Package name",
+		"Description": "Description",
+		"Version": "Version",
+		"Size": "Size"
+	},
+	"Image": {
+		"StartedAt": "Started At",
+		"CreatedAt": "Created At"
+	},
+	"Dashboard": {
+		"CreateNewBuild": "Create new build",
+		"ImageError": "Oops, something went wrong",
+		"issueWarning": "if the problem persists, please",
+		"reportAboutIssue": "report an issue",
+		"noDescription": "No description",
+		"Filters": "Filters",
+		"HeadToActiveImage": "Head to active image",
+		"Placeholders": {
+			"TypeImageName": "type image name here..."
+		}
+	},
+	"ImageCreation": {
+		"SelectItems": "Select items",
+		"InitializationStep": "Initialization Step",
+		"PackagesListStep": "Package List Step",
+		"UsersAndGroupsStep": "Users & Groups Step",
+		"ConfigurationStep": "Configuration Step",
+		"DeviceNotSelected": "Device is not selected",
+		"Issues": {
+			"Brands": "Brand is not selected",
+			"Devices": "Device is not selected",
+			"Distros": "Distributive is not selected",
+			"BuildType": "Build type is not selected"
+		},
+		"CreationProcessBar": {
+            "Initialization": "Initialization",
+            "Packages": "Packages",
+            "UsersAndGroups": "Users",
+            "Configuration": "Configuration"
+        },
+        "SelectedParts": {
+            "brands": "Brand",
+            "targetDevices": "Target device",
+            "distros": "Distributive",
+            "buildTypes": "Build type"
+        },
+		"HeaderSubTitle": "Random text, Random textRandom text, Random text Random textRandom text, Random text",
+		"NextStep": "Next step",
+		"PreviousStep": "Previous step",
+		"SkipSteps": "Skip optional steps"
+	},
+	"RegAuth": {
+		"Home": "Home",
+		"Features": "Features",
+		"Plans": "Plans",
+		"Pricing": "Pricing",
+		"Blog": "Blog",
+		"SignIn": "Sign In",
+		"SignUp": "Sign Up",
+		"SingUpWith": "Sign up with {{title}}",
+		"CreateAccount": "Create new account",
+		"CreateFreeAccount": "Create your free account",
+		"BackToRegistration": "Back to sign up methods",
+		"OrSignUpWith": "Or sign up with",
+		"BecomeMember": "Become a member",
+		"AlreadyHaveAccount": "Already have an account",
+		"Agreement": "By signing up, you agree with CudDeb’s",
+        "TermsAndServices": "Terms and Services",
+        "PrivacyPolicy": "Privacy Policy",
+		"Registration": {
+			"Username": "Name",
+			"Email": "Email Address",
+			"Password": "Password",
+			"Confirm": "Repeat Password",
+			"Placeholders": {
+				"Username": "Enter your name",
+				"Email": "Enter your e-mail",
+				"Password": "Enter your password",
+				"Confirm": "Repeat your password"
+			},
+			"Validation": {
+				"Required": "Required field",
+				"InvalidEmail": "Wrong email address",
+				"PwdsAreUncomparable": "Passwords don't match",
+				"PwdIsIncorrect": "Passwort must have atleast one kerning symbol, 6 chars and have letters in both cases"
+			}
+		},
+		"Auth": {
+			"Username": "Username",
+			"DontHaveAnAccount": "Don’t have an account",
+			"Register": "Register",
+			"ForgotPassword": "Forgot your password",
+			"SignInToCusdeb": "Sign in to CusDeb",
+			"Login": "Login",
+			"OrUseEmail": "Or use your email account"
+		}
+	},
+	"RequestsErrors": {
+		"usernameIsAlreadyInUse": "This username is already in use",
+		"emailIsAlreadyInUse": "This email is already in use"
+	}
+}
