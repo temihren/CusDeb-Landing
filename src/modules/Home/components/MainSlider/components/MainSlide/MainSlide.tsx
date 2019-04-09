@@ -5,16 +5,21 @@ import Terminal from 'assets/images/terminalWindow.svg';
 import Flex from 'common/components/Flex/Flex';
 import styles from './mainSlide.scss';
 
+interface ISlide {
+	name: string;
+	title: string;
+	smallText: any;
+}
+
 interface IProps {
+	mainSlidesLength: number;
+	slide: ISlide;
 	currentSlideIndex: number;
 	changeSlide: any;
-	title: string;
-	mainSlidesLength: number;
-	smallText: any;
-	order: number;
 	isAnimated: boolean;
-	className: 'string';
-	mainSlides: any[];
+	order: number;
+	mainSlidesOrder: number[];
+	mainSlidesContent: ISlide[];
 }
 
 interface IState {
@@ -43,21 +48,19 @@ class MainSlide extends PureComponent<IProps, IState> {
 
 	public render() {
 		const {
-			title,
-			smallText,
 			mainSlidesLength,
 			currentSlideIndex,
 			order,
 			isAnimated,
-			className,
-			mainSlides,
 			changeSlide,
+			slide,
+			mainSlidesContent,
 		} = this.props;
 
 		const {isMenuOpen} = this.state;
 
 		const pagination = [];
-		for (let i = 0; i < mainSlidesLength; i++) {
+		for (let i = 0; i < mainSlidesContent.length; i++) {
 			pagination.push((
 				<div
 					key={i}
@@ -70,16 +73,16 @@ class MainSlide extends PureComponent<IProps, IState> {
 		}
 
 		const rightSideMenuList: any = [];
-		for (const slide of mainSlides) {
+		for (let i = 0; i < mainSlidesContent.length; i++) {
 			rightSideMenuList.push((
 				<div
-					key={slide.title}
+					key={i}
 					className={cn(styles.slideRightBarListItem, {
-						[styles.slideRightBarListItem_disabled]: mainSlides.indexOf(slide) === currentSlideIndex,
+						[styles.slideRightBarListItem_disabled]: i === currentSlideIndex,
 					})}
-					onClick={() => changeSlide(mainSlides.indexOf(slide))}
+					onClick={() => changeSlide(i)}
 				>
-					{slide.title}
+					{mainSlidesContent[i].title}
 				</div>
 			));
 		}
@@ -96,7 +99,7 @@ class MainSlide extends PureComponent<IProps, IState> {
 			>
 				<Flex
 					justifyContent='space-between'
-					className={cn(styles.slideWrapper, styles[className])}
+					className={cn(styles.slideWrapper, styles[slide.name])}
 					alignItems='center'
 				>
 					<Flex
@@ -127,11 +130,11 @@ class MainSlide extends PureComponent<IProps, IState> {
 						className={styles.slideContent}
 					>
 						<p className={styles.slideContentTitle}>
-							{title}
+							{slide.title}
 						</p>
 						<hr className={styles.slideContentLine} />
 						<hr className={styles.slideContentLine} />
-						<div className={styles.slideContentSmallText}>{smallText}</div>
+						<div className={styles.slideContentSmallText}>{slide.smallText}</div>
 						<div className={styles.slideContentButton}>
 							Learn more
 						</div>
@@ -148,9 +151,7 @@ class MainSlide extends PureComponent<IProps, IState> {
 							justifyContent='space-between'
 							className={styles.slideRightBarMenu}
 						>
-							<span />
-							<span />
-							<span />
+							<span /><span /><span />
 						</Flex>
 						<Flex
 							direction='column'
@@ -160,7 +161,7 @@ class MainSlide extends PureComponent<IProps, IState> {
 							{rightSideMenuList}
 						</Flex>
 						<div className={styles.slideRightBarText}>
-							{title}
+							{slide.title}
 						</div>
 					</div>
 					<Flex

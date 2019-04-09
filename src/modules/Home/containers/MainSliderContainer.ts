@@ -2,11 +2,11 @@ import {connect} from 'react-redux';
 import MainSlider from '../components/MainSlider/MainSlider';
 
 import {changeCurrentMainSlide, stopMainSliderAnimation} from '../actions/home';
-import {getCurrentMainSlideIndex, getMainSlides} from '../selectors/home';
+import {getCurrentMainSlideIndex, getMainSlidesOrder} from '../selectors/home';
 
 const mapStateToProps = (state: any) => ({
 	currentSlideIndex: getCurrentMainSlideIndex(state),
-	mainSlides: getMainSlides(state),
+	mainSlidesOrder: getMainSlidesOrder(state),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
