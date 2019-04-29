@@ -1,0 +1,81 @@
+@import '../../home.scss';
+
+.formFactors {
+	position: relative;
+
+	&Background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 200%;
+		width: 100%;
+		background-color: #F8FAFC;
+		transform: skewY(-3.5deg);
+		transform-origin: bottom left;
+	}
+}
+
+.bitOSImages {
+	position: relative;
+
+	&Background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 200%;
+		width: 100%;
+		background-color: #0F3141;
+		transform: skewY(3.5deg);
+		transform-origin: bottom right;
+	}
+}
+
+.contentSection {
+	position: relative;
+	padding: 0 0 100px 0;
+
+	&Circle {
+		min-width: 230px;
+		margin-right: 48px;
+		min-height: 230px;
+		border-radius: 200px;
+		background-color: #133547;
+
+		&Img {
+			opacity: 0.6;
+			max-width: 100px;
+			max-height: 100px;
+		}
+	}
+
+	&Right {
+		flex-direction: row-reverse;
+
+		& .contentSectionInfo {
+			text-align: right;
+			align-items: flex-end;
+		}
+
+		& .contentSectionCircle {
+			margin-left: 48px;
+			background-color: #E8EDF0;
+		}
+
+		& .contentSectionTitle {
+			color: #566E85;
+		}
+	}
+
+	&Title {
+		color: #B1CFE8;
+		font-weight: 600;
+		font-size: 24px;
+		margin-bottom: 17px;
+	}
+
+	&Text {
+		color: #376790;
+		margin-bottom: 15px;
+		max-width: 360px;
+	}
+}

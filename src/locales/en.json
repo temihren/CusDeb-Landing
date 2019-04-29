@@ -7,5 +7,48 @@
 		"Blog": "Blog",
 		"SignIn": "Sign In",
 		"SignUp": "Sign Up"
+	},
+	"Home": {
+		"IntroducingCusDeb": "Introducing CusDeb",
+		"CusDebDescription": "CusDeb is a powerful service for building customized operating system images for single-board computers",
+		"Slides": {
+			"emulator": {
+				"title": "Emulator",
+				"description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec"
+			},
+			"overTheAir": {
+				"title": "Over the air",
+				"description": "Mender is an open source remote software updater for embedded Linux devices.\nIt enables management of software updates to conected devices remotely over any TCP/IP network. You can simply turn any image into a Mender compatable one, selecting “Mender Compatable Image” option, while making your image."
+			},
+			"emulator2": {
+				"title": "Emulator 2",
+				"description": "Description for third slide"
+			},
+			"LearnMore": "Подробнее"
+		},
+		"BuiltImages": "Built images",
+		"ActiveUsers": "Active users",
+		"SignUpToday": "Sign Up Today",
+		"UderSignUpToday": "Ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.",
+		"Register": "Register",
+		"OpenSource": "Open source",
+		"OpenSourceSectionText": "The key components of CusDeb are open source software, so CusDeb’s heart, Pieman, is available on GitHub along with such microservices as BlackMagic (also known as BM), Dominion and Orion.",
+		"OpenSourceSectionFirst": "Black Magic manages the whole process of customizing images.",
+		"OpenSourceSectionSecond": "Dominion paired with Pieman are responsible for building images.",
+		"OpenSourceSectionThird": "Orion is intended for running images in emulator for testing pusposes.",
+		"ReadMore": "Read more",
+		"LearnMore": "Learn more",
+		"SuppertedAllFormFactors": "Supported all form factors",
+		"SupportedAllFormFactorsText": "Use any device that you have, even mobile phone to create and test your images. CusDeb provides new, unique way to interact with linux in a cloud.",
+		"64BitOSImages": "64 bit OS images",
+		"64BitOSImagesText": "Unleash the power of your device with 64 bit built OS images, that only CusDeb has for now. This is going to be a great experience for your device in case of performance.",
+		"DetailedDocumentation": "Detailed documentation",
+		"DetailedDocumentationText": "We have a great documentation which will help you to learn more about how to build and use images on your devices, and even more, we can learn you how to use Linux and test it in our cloud terminal, this is gonna be a lot of fun for you using CusDeb.",
+		"StartUsingCusDebToday": "Start using CusDeb today",
+		"StartUsingCusDebTodayText": "CusDeb is free to use, but there are some amazing features, available only for users with “pro” plan.",
+		"UpgradeToPro": "upgrade to 'pro' plan and get <0>10%</0> discount",
+		"SubscriptionPlans": "Subscription plans",
+		"FooterText": "CusDeb is a powerful service for building customized operating system images for single-board computers",
+		"Copyright": "Copyright 2019 - CusDeb. All righes reserved"
 	}
 }

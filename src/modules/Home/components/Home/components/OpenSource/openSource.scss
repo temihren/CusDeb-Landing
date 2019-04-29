@@ -1,0 +1,86 @@
+@import '../../home.scss';
+
+.openSource {
+	padding: 60px 0 100px 0;
+	background-color: #021834;
+	color: #47678E;
+	overflow: hidden;
+	line-height: 15px;
+	position: relative;
+
+	&Container {
+		position: relative;
+	}
+
+	&Title {
+		color: #327AD2;
+		font-size: 24px;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 30px;
+	}
+
+	&Text {
+		max-width: 390px;
+	}
+
+	&List {
+		padding: 38px 0 0 0;
+
+		&Item {
+			margin: 0 0 35px 0;
+		}
+
+		&Dot {
+			width: 10px;
+			height: 10px;
+			background-color: #2F7BD3;
+			border: 5px solid #03284E;
+			margin-right: 18px;
+			border-radius: 20px;
+		}
+
+		&Text {
+			max-width: 240px;
+		}
+	}
+
+	&Map {
+		position: absolute;
+		top: -55px;
+		opacity: 0.2;
+		max-width: 700px;
+		right: 0;
+
+		&Image {
+			width: 100%;
+		}
+	}
+
+	&Octocat {
+		position: absolute;
+		top: 30px;
+		right: 160px;
+		width: 190px;
+		height: 190px;
+
+		&Circle {
+			border-radius: 100px;
+			opacity: 0.5;
+			box-sizing: border-box;
+			border: 20px solid #0C2743;
+			width: 100%;
+			background-color: #327AD2;
+			height: 100%;
+		}
+
+		&Icon {
+			position: absolute;
+			top: 50%;
+			max-width: 40px;
+			max-height: 40px;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}

@@ -4,6 +4,7 @@ import {withNamespaces} from 'react-i18next';
 import {Route, Switch} from 'react-router-dom';
 
 import CommonLayout from 'common/components/Layouts/CommonLayout';
+import Home from 'modules/Home/components/Home/Home';
 
 const Routes = () => (
 	<Switch>
@@ -12,7 +13,7 @@ const Routes = () => (
 			render={() => (
 				<CommonLayout>
 					<Switch>
-						<Route exact path='/' render={() => <div>Home</div>} />
+						<Route exact path='/' component={Home} />
 						<Route path='/prising' render={() => <div>Prising</div>} />
 					</Switch>
 				</CommonLayout>
