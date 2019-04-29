@@ -1,0 +1,43 @@
+@import 'styles/variables';
+@import '../../home.scss';
+
+.indicators {
+	height: 87px;
+	background-color: #1A4365;
+	border-bottom: 1px solid #173B62;
+}
+
+.indicator {
+	font-family: $fira;
+	height: 100%;
+	padding: 0 30px;
+	border-left: 1px solid #234F74;
+
+	&Circle {
+		height: 50px;
+		width: 50px;
+		background-color: #214768;
+		border-radius: 50px;
+		margin-right: 16px;
+		box-sizing: border-box;
+
+		&Img {
+			width: 17px;
+		}
+	}
+
+	&Parameter {
+		&Top, &Bottom {
+			color: #B1CFE8;
+			text-transform: uppercase;
+		}
+
+		&Top {
+			font-weight: 600;
+		}
+
+		&Bottom {
+			opacity: 0.4;
+		}
+	}
+}

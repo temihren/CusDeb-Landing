@@ -1,0 +1,65 @@
+@import 'styles/colors.scss';
+@import 'styles/variables.scss';
+
+@keyframes animateBackground {
+	0% {
+		background-position: 0% 83%
+	}
+
+	50% {
+		background-position: 100% 18%
+	}
+
+	100% {
+		background-position: 0% 83%
+	}
+}
+
+.home {
+	transition: all 5s;
+	background: $white;
+	overflow: hidden;
+}
+
+.homeContainer {
+	max-width: 1050px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+.overTheAir {
+	background: linear-gradient(45deg, #1E57A1,#5FB474);
+	background-size: 150% 150%;
+	animation: animateBackground 10s ease infinite;
+}
+
+.emulator {
+	background: linear-gradient(45deg, #1E5799,#7DB9E8);
+	background-size: 150% 150%;
+	animation: animateBackground 10s ease infinite;
+}
+
+.text {
+	font-size: 12px;
+	line-height: 15px;
+}
+
+.readMoreButton {
+	border: none;
+	max-width: 123px;
+	padding: 15px 30px 14px 30px;
+	text-transform: uppercase;
+	color: $white;
+	border-radius: 5px;
+	font-size: 12px;
+	background-color: #66B2FF;
+}
+
+.diagonalWrapper {
+	overflow: hidden;
+}
+
+.diagonal {
+	position: relative;
+	min-height: 100px;
+}

@@ -1,0 +1,27 @@
+@import '../../home.scss';
+
+.intro {
+	padding: 30px;
+}
+
+.introLogo {
+	margin-bottom: 20px;
+	max-height: 50px;
+}
+
+.mainTitles {
+	font-family: 'Oswald Light', sans-serif;
+	color: $white;
+	letter-spacing: 1px;
+
+	&_top {
+		font-size: 26px;
+		text-transform: uppercase;
+		margin-bottom: 16px;
+	}
+
+	&_bottom {
+		color: #E0F6FF;
+		font-size: 14px;
+	}
+}
